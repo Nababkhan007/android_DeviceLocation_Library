@@ -15,26 +15,30 @@ public class DeviceLocation {
     FusedLocationProviderClient client;
     LocationRequest request;
     LocationCallback callback;
+    double latitude;
+    double longitude;
 
-    public void getDeviceLocation(){
-        client = LocationServices.getFusedLocationProviderClient(context);
-        request = new LocationRequest().setPriority(LocationRequest
+    public double getDeviceLocation(){
+        this.client = LocationServices.getFusedLocationProviderClient(this.context);
+        this.request = new LocationRequest().setPriority(LocationRequest
                 .PRIORITY_HIGH_ACCURACY)
                 .setInterval(3000)
                 .setFastestInterval(1000);
-        callback = new LocationCallback(){
+        this.callback = new LocationCallback(){
             @Override
             public void onLocationResult(LocationResult locationResult) {
                 super.onLocationResult(locationResult);
                 for (Location location : locationResult.getLocations()){
-                    double latitude = location.getLatitude();
-                    double longitude = location.getLatitude();
+                    latitude = location.getLatitude();
+                    longitude = location.getLatitude();
 
                     Toast.makeText(context, String.valueOf(latitude)+" "+String.valueOf(longitude),
                             Toast.LENGTH_SHORT).show();
                 }
             }
         };
+
+        return 0;
     }
 }
 
