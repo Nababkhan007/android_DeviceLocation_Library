@@ -31,7 +31,7 @@ public class DeviceLocation {
                     double longitude = location.getLatitude();
 
                     Toast.makeText(context, String.valueOf(latitude)+" "+String.valueOf(longitude),
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         };
